@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--#include virtual="/review_v2/includes/head_common_bs.html"-->
+  <title>Data Review Module</title>
+
+</head>
+<body>
+<div id="wrap">
+<!--#include virtual="/review_v2/includes/page_header_bs.html"-->
+
+<div class="container">
+  <div class="page-header"> 
+     <h3>Data Review Tools <small id="subheader" class="pull-right"> </small></h3>
+  </div>
+<p>
+Use the forms below to select entries for review or update. Entries may identified by their deposition data set identifier 
+   or file associated with a deposition may be uploaded.   Uploaded data files should strictly follow project file naming conventions 
+to the extent names begin with the relevant data set identifier (e.g. D_1000000000_model_P1.cif.V1)   Uploaded files will be stored 
+in the archive as the next higher version of the data file.  </p>
+
+<div id="review-admin-dialog">
+
+<!-- ID operations --> 
+<form id="review-inline-idops-form" method="get" action="/service/review_v2/inline_idops"  enctype="application/x-www-form-urlencoded" name="review-inline-idops" class="form-inline" role="form" > 
+   <INPUT name="formid" TYPE="hidden" VALUE="inlineidops"> 
+
+   <fieldset>
+     <legend>Archive data entries <a href="review_help.html"> <span class="glyphicon glyphicon-info-sign pull-right"></span> </a> </legend>
+
+     <div class="form-group">
+       <label for="review-idcode-1" class="label-control">Deposition data set ID</label>  
+       <input type="text" name="entryid" id="review-idcode-1" value="" placeholder="D_1000000000" class="form-control">
+     </div>
+
+     <div class="form-group">
+       <label for="operation1" class="label-control">Operation</label> 
+       <select id="operation1" name="operation" class="form-control">
+         <option selected="selected"    value="check-all">All entry checks</option>
+         <option                        value="report">Create entry report</option>
+         <option                        value="fetch_entry">Fetch entry file</option>
+         <option                        value="fetch_sf">Fetch structure factor file</option>
+         <option                        value="fetch_cs">Fetch chemical shifts file</option>
+         <option                        value="fetch_nef">Fetch NEF file</option>
+         <option                        value="fetch_map">Fetch EM map file</option>
+         <option                        value="checkv5">Entry dictionary check (V5 int)</option>
+         <option                        value="checkNext">Entry dictionary check (V50 pub)</option>
+         <option                        value="check-format">Entry coordinate format check </option>
+         <option                        value="check-misc">Entry extra/misc checks</option>
+         <option                        value="check-geometry">Entry geometry checks</option>
+         <option                        value="check-special-position">Entry special position check</option>
+         <option                        value="check-sf">Entry structure factor checks</option>
+         <option                        value="cif2pdb">PDB Format File</option>
+         <option                        value="files-deposit">Deposit File List</option>
+         <option                        value="files-archive">Archive File List</option>
+         <option                        value="files-instance">Workflow Instance File List</option>
+
+       </select>
+     </div>
+
+     <input id="review-inline-idops-button" class="btn btn-primary" TYPE="submit" VALUE="Go"> 
+     <div id="review-inline-idops-status" class="op-status"></div>
+     <div id="review-inline-idops-links" class="op-links"></div>
+   </fieldset>
+   <input  name="contentType" TYPE="hidden" VALUE="model"> 
+   <input  name="filesource" TYPE="hidden" VALUE="wf-archive"> 
+</form>
+
+<!-- File operations -->
+<form id="review-inline-fileops-form" method="post" action="/service/review_v2/inline_fileops" enctype="multipart/form-data" class="form-inline"> 
+
+  <fieldset>
+    <legend>Entry data files <a href="review_help.html"> <span class="glyphicon glyphicon-info-sign pull-right"></span> </a> </legend>
+
+    <div class="form-group">
+      <label for="review-fname-1" class="label-control">File name</label>        
+      <input  type="file" name="file" id="review-fname-1" value="" class="input-medium" placeholder="Data file name"> 
+    </div>
+    
+    <div class="form-group">
+      <label for="operation2" class="label-control">Operation</label> 
+      <select  id="operation2" name="operation" class="form-control">
+        <option selected="selected"    value="report">Create entry report</option>
+	<!--
+        <option                        value="updatewithcheck">Update file in archive (with check)</option>
+        <option                        value="update">Update file in archive (without check)</option>
+	-->
+        <option                        value="update">Update file in archive</option>
+        <option                        value="checkv5">Dictionary check (V5 int)</option>
+        <option                        value="checkNext">Dictionary check (V50 pub)</option>
+      </select>
+    </div>
+
+    <input id="review-inline-idops-button" class="btn btn-primary" TYPE="submit" VALUE="Go"> 
+    
+    <div id="review-inline-fileops-status" class="op-status"></div>
+    <div id="review-inline-fileops-links"  class="op-links"></div>
+  </fieldset>
+  <INPUT  name="formid" TYPE="hidden" VALUE="inlinefileops"> 
+  <INPUT  name="idcode" TYPE="hidden" VALUE="__T"> 
+  <input  name="contentType" TYPE="hidden" VALUE="model">   
+
+</form>
+
+
+  <div id="review-report-container">
+       <div id="review-inline-idops-report"  class="report-content"></div>
+  </div>
+
+
+
+<!-- END TEXT HERE  -->
+      <!-- progress spinner -->
+      <div id="loading">
+            <div id="loadingcontent">
+              <p id="loadingspinner">
+                  Running  ...
+              </p>
+            </div>
+      </div>
+
+</div> <!-- end review admin dialog -->
+ 
+</div> <!-- end container -->
+</div> <!-- end wrap -->
+<!--#include virtual="/review_v2/includes/page_footer_bs.html"-->
+<!--#include virtual="/review_v2/includes/page_javascript_bs.html"-->
+
+</body>
+</html>
+
