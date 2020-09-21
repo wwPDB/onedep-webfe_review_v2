@@ -6,16 +6,16 @@
             <div class="col-md-2">
               <div class="bs-sidebar hidden-print" role="complementary">
 		<ul class="nav bs-sidenav">
-		  <li><a href="#sec_1">Entry report</a></li>
-		  <li><a href="#sec_2">X-ray Exp</a></li>
-		  <li><a href="#sec_3">Geometry</a></li>
-		  <li><a href="#sec_4">Miscellaneous</a></li>
-		  <li><a href="#sec_4a">Special Positions</a></li>
-		  <li><a href="#sec_5">Dictionary (V5)</a></li>
-		  <li><a href="#sec_6a">Dictionary (V50)</a></li>
-		  <li><a href="#sec_9">XML Header</a></li>
-		  <li><a href="#sec_7">Format</a></li>
-		  <li><a href="#sec_8">Downloads</a></li>
+          <li><a href="#sec_1">Misc Checks</a></li>
+          <li><a href="#sec_2">Dictionary (V5)</a></li>
+          <li><a href="#sec_2a">Dictionary (V50)</a></li>
+          <li><a href="#sec_3">Special Positions</a></li>
+          <li><a href="#sec_4">X-ray Exp</a></li>
+          <li><a href="#sec_5">Entry report</a></li>
+          <li><a href="#sec_6">Geometry</a></li>
+          <li><a href="#sec_7">XML Header</a></li>
+          <li><a href="#sec_8">Format</a></li>
+          <li><a href="#sec_9">Downloads</a></li>  
 		</ul>
 	      </div>
 	    </div>
@@ -25,70 +25,70 @@
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_1">Entry Report</h3>
+		  <h3 id="sec_1">Miscellaneous Check Report</h3>
 		</div>
-		%(model)s
+		%(misc-check-report)s
 	      </div>
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_2">X-ray Experimental Data Report</h3>
+		  <h3 id="sec_2">Dictionary V5 Internal Check Report</h3>
 		</div>
-		%(dcc-report)s
+		%(dict-check-report)s
 	      </div>
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_3">Geometry Report</h3>
+		  <h3 id="sec_2a">Dictionary V50 Public Check Report</h3>
 		</div>
-		%(geometry-check-report)s
+		%(dict-check-report-next)s
 	      </div>
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_4">Miscellaneous Check Report</h3>
-		</div>
-		%(misc-check-report)s		    
-	      </div>
-
-	      <div class="bs-docs-section">
-		<div class="page-header">
-		  <h3 id="sec_4a">Special Position Check Report</h3>
+		  <h3 id="sec_3">Special Position Check Report</h3>
 		</div>
 		%(special-position-report)s		    
 	      </div>
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_5">Dictionary Check V5 Internal Report</h3>
+		  <h3 id="sec_4">X-ray Experimental Data Report</h3>
 		</div>
-		%(dict-check-report)s		    
+		%(dcc-report)s		    
 	      </div>
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_6a">Dictionary V50 Public Check Report</h3>
+		  <h3 id="sec_5">Entry Report</h3>
 		</div>
-		%(dict-check-report-next)s		    
+		%(model)s		    
 	      </div>
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_9">XML Header Report</h3>
+		  <h3 id="sec_6">Geometry Report</h3>
+		</div>
+		%(geometry-check-report)s		    
+	      </div>
+
+	      <div class="bs-docs-section">
+		<div class="page-header">
+		  <h3 id="sec_7">XML Header Report</h3>
 		</div>
 		%(emd-xml-header-report)s		    
 	      </div>
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_7">Format Check Report</h3>
+		  <h3 id="sec_8">Format Check Report</h3>
 		</div>
 		%(format-check-report)s		    
 	      </div>
 
 	      <div class="bs-docs-section">
 		<div class="page-header">
-		  <h3 id="sec_8">Downloads</h3>
+		  <h3 id="sec_9">Downloads</h3>
 		</div>
 		    %(downloads)s		    		
 	      </div>
