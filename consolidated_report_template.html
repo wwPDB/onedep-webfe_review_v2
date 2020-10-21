@@ -3,19 +3,9 @@
 <head>
     <!--#include virtual="/review_v2/includes/head_common_bs.html"-->
     <title>Report %(identifier)s</title>
-     <!-- Molstar CSS & JS -->
-    <link rel="stylesheet" type="text/css" href="https://www.ebi.ac.uk/pdbe/pdb-component-library/css/pdbe-molstar-1.1.0.css">
-    <script type="text/javascript" src="https://www.ebi.ac.uk/pdbe/pdb-component-library/js/pdbe-molstar-plugin-1.1.0.js"></script>
-    <style>
-      #myViewer{
-        float:left;
-        width:300px;
-        height: 300px;
-        position:relative;
-      }
-    </style>
+
 </head>
-<body>
+<body onLoad="display_mol_star(molecule_url='%(model-session)s')">
 <div id="wrap">
     <!--#include virtual="/review_v2/includes/page_header_minimum_menu_bs.html"-->
     <div class="container">
@@ -35,6 +25,7 @@
                             <li><a href="#sec_1">Misc Checks</a></li>
                             <li><a href="#sec_2">Dictionary (V5)</a></li>
                             <li><a href="#sec_3">Entry report</a></li>
+                            <li><a href="#sec_3a">Mol star</a></li>
                             <li><a href="#sec_4">Experimental data report</a></li>
                             <li><a href="#sec_7">Data Downloads</a></li>
                             <li><a href="#sec_8">Validation Reports</a></li>
@@ -62,6 +53,11 @@
                     %(model)s
 
                     <div class="page-header">
+                        <h3 id="sec_3a">Mol star</h3>
+                    </div>
+                    <div id="myViewer">display_mol_star()</div>
+
+                    <div class="page-header">
                         <h3 id="sec_4">Experimental Data Reports</h3>
                     </div>
                     %(exp-report)s
@@ -82,18 +78,9 @@
                     </div>
                     %(downloads)s
 
+
                 </div>
 
-                <div id="myViewer" style="width:300px;height:300px;position:absolute;right:29px"></div>
-
-                <script>
-                    var viewerInstance = new PDBeMolstarPlugin();
-                    var options = { customData:{  url: %(model-session)s, format: 'cif' }, hideControls: true};
-                    //Get element from HTML/Template to place the viewer
-                    var viewerContainer = document.getElementById('myViewer');
-                    //Call render method to display the 3D view
-                    viewerInstance.render(viewerContainer, options);
-                </script>
 
             </div> <!-- end row containing sections -->
         </div>   <!-- section container
