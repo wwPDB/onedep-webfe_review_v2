@@ -8,12 +8,14 @@
                 <ul class="nav bs-sidenav">
                     <li><a href="#sec_1">Misc Checks</a></li>
                     <li><a href="#sec_2">Dictionary (V5)</a></li>
-                    <li><a href="#sec_2a">Dictionary (V50)</a></li>
                     <li><a href="#sec_3">Entry report</a></li>
-                    <li><a href="#sec_4">X-ray Exp</a></li>
-                    <li><a href="#sec_5">Special Positions</a></li>
+                    <li><a href="#sec_4">Mol star</a></li>
+                    <li><a href="#sec_5">X-ray data report</a></li>
                     <li><a href="#sec_6">EMDB XML Header</a></li>
-                    <li><a href="#sec_8">Downloads</a></li>
+                    <li><a href="#sec_7">Special Positions</a></li>
+                    <li><a href="#sec_8">Data Downloads</a></li>
+                    <li><a href="#sec_9">Validation Reports</a></li>
+                    <li><a href="#sec_10">Review Report Downloads</a></li>
                 </ul>
             </div>
         </div>
@@ -32,36 +34,48 @@
             %(dict-check-report)s
 
             <div class="page-header">
-                <h3 id="sec_2a">Dictionary V50 Public Check Report</h3>
-            </div>
-            %(dict-check-report-next)s
-
-            <div class="page-header">
                 <h3 id="sec_3">Entry Report</h3>
             </div>
             %(model)s
 
             <div class="page-header">
-                <h3 id="sec_4">X-ray Experimental Data Report</h3>
+                <h3 id="sec_4">Mol star</h3>
+            </div>
+            <div id="myViewer">display_mol_star()</div>
+
+            <div class="page-header">
+                <h3 id="sec_5">X-ray Data Reports</h3>
             </div>
             %(dcc-report)s
 
             <div class="page-header">
-                <h3 id="sec_5">Special Position Check Report</h3>
-            </div>
-            %(special-position-report)s
-
-            <div class="page-header">
-                <h3 id="sec_6">EMDB XML Header Report</h3>
+                <h3 id="sec_6">EMDB XML Header Reports</h3>
             </div>
             %(emd-xml-header-report)s
 
             <div class="page-header">
-                <h3 id="sec_8">Downloads</h3>
+                <h3 id="sec_7">Special Position Check Report</h3>
+            </div>
+            %(special-position-report)s
+
+            <div class="page-header">
+                <h3 id="sec_8">Data Files</h3>
+            </div>
+            %(data-downloads)s
+
+            <div class="page-header">
+                <h3 id="sec_9">Validation Reports</h3>
+            </div>
+            %(val_image)s
+            %(validation-downloads)s
+
+            <div class="page-header">
+                <h3 id="sec_10">Review Report Downloads</h3>
             </div>
             %(downloads)s
 
-        </div> <!-- end div containing sections -->
+
+        </div>
 
     </div> <!-- end div containing nav and sections -->
 </div>   <!-- section container  -->

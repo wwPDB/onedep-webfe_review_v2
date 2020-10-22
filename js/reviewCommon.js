@@ -53,6 +53,18 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
+
+
+function display_mol_star(molecule_url){
+    var viewerInstance = new PDBeMolstarPlugin();
+    var options = {customData: {url: molecule_url, format: 'cif'}, landscape: true};
+    //Get element from HTML/Template to place the viewer
+    var viewerContainer = document.getElementById('myViewer');
+    //Call render method to display the 3D view
+    viewerInstance.render(viewerContainer, options);
+}
+
+
 function uploadFile(serviceUrl, formElementId, progressElementId) {
     var bar = $('.bar');
     var percent = $('.percent');
