@@ -57,7 +57,7 @@ function logContext(message) {
 
 function display_mol_star(molecule_url){
     var viewerInstance = new PDBeMolstarPlugin();
-    var options = {customData: {url: molecule_url, format: 'cif'}, landscape: true};
+    var options = {customData: {url: molecule_url, format: 'cif'}, landscape: true, assemblyId: '1'};
     //Get element from HTML/Template to place the viewer
     var viewerContainer = document.getElementById('myViewer');
     //Call render method to display the 3D view
