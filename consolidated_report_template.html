@@ -5,7 +5,7 @@
     <title>Report %(identifier)s</title>
 
 </head>
-<body onLoad="display_mol_star(molecule_url='%(model-session)s')">
+<body %(molStar)s>
 <div id="wrap">
     <!--#include virtual="/review_v2/includes/page_header_minimum_menu_bs.html"-->
     <div class="container">
@@ -63,7 +63,7 @@
                     <div class="page-header">
                         <h3 id="sec_4">MolStar</h3>
                     </div>
-                    <div id="myViewer">display_mol_star()</div>
+                    %(molStar-display)s
 
                     <div class="page-header">
                         <h3 id="sec_5">X-ray Data Reports</h3>
