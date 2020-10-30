@@ -53,15 +53,23 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
-
-
 function display_mol_star(molecule_url){
-    var viewerInstance = new PDBeMolstarPlugin();
-    var options = {customData: {url: molecule_url, format: 'cif'}, landscape: true, assemblyId: '1'};
-    //Get element from HTML/Template to place the viewer
-    var viewerContainer = document.getElementById('myViewer');
-    //Call render method to display the 3D view
-    viewerInstance.render(viewerContainer, options);
+    var viewerInstance = new molstar.Viewer('myViewer', {
+                extensions: [],
+                layoutIsExpanded: false,
+                layoutShowControls: true,
+                layoutShowRemoteState: false,
+                layoutShowSequence: true,
+                layoutShowLog: false,
+                layoutShowLeftPanel: false,
+
+                viewportShowExpand: false,
+                viewportShowSelectionMode: false,
+                viewportShowAnimation: false,
+                volumeStreamingDisabled: true
+
+            });
+    viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url);
 }
 
 
