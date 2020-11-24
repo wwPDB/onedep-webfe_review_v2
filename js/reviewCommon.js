@@ -69,7 +69,7 @@ function display_mol_star(molecule_url){
                 volumeStreamingDisabled: true
 
             });
-    viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url);
+    viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, { representationParams: { theme: { globalName: 'operator-name' } } });
 }
 
 
