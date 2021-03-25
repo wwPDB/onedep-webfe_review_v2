@@ -53,7 +53,7 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
-function display_mol_star(molecule_url){
+function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_url = 'undefined', em_mask_volume = 'undefined'){
     var viewerInstance = new molstar.Viewer('myViewer', {
                 extensions: [],
                 layoutIsExpanded: false,
@@ -69,7 +69,19 @@ function display_mol_star(molecule_url){
                 volumeStreamingDisabled: true
 
             });
-    viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, { representationParams: { theme: { globalName: 'operator-name' } } });
+    if (molecule_url !== 'undefined') {
+        viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
+    }
+    if (primary_contour_level === 'undefined' ) {
+        primary_contour_level = 1
+    }
+
+    if (em_volume_url !== 'undefined') {
+        viewerInstance.loadVolumeFromUrl(em_volume_url, 'dscif', true, [{ type: 'relative', value: primary_contour_level, color: 0xff0000, alpha: 0.33 }], 'primary EM volume');
+    }
+    if (em_mask_volume !== 'undefined') {
+        viewerInstance.loadVolumeFromUrl(em_mask_volume, 'dscif', true, [{ type: 'relative', value: primary_contour_level, color: 0xff0000, alpha: 0.33 }], 'EM mask');
+    }
 }
 
 
