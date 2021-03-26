@@ -77,10 +77,10 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
     }
 
     if (em_volume_url !== 'undefined') {
-        viewerInstance.loadVolumeFromUrl(em_volume_url, 'dscif', true, [{ type: 'relative', value: primary_contour_level, color: 0x0000ff, alpha: 0.20 }], 'primary');
+        viewerInstance.loadVolumeFromUrl(em_volume_url, 'dscif', true, [{ type: 'absolute', value: primary_contour_level, color: 0x0000ff, alpha: 0.20 }], 'primary');
     }
     if (em_mask_volume !== 'undefined') {
-        viewerInstance.loadVolumeFromUrl(em_mask_volume, 'dscif', true, [{ type: 'relative', value: primary_contour_level, color: 0xff0000, alpha: 0.20 }], 'mask');
+        viewerInstance.loadVolumeFromUrl(em_mask_volume, 'dscif', true, [{ type: 'absolute', value: primary_contour_level, color: 0xff0000, alpha: 0.20 }], 'mask');
     }
 }
 
