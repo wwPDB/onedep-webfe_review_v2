@@ -90,7 +90,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 alpha: 0.20
             }],
             {
-                isLazy: true,
+                isLazy: false,
                 entryId: 'primary'
             }
         );
