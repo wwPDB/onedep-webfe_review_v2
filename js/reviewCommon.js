@@ -53,7 +53,7 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
-function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_url = 'undefined', em_mask_volume = 'undefined'){
+function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_url = 'undefined', em_mask_volume_url = 'undefined', map_xray_url = 'undefined'){
     var viewerInstance = new molstar.Viewer('myViewer', {
                 extensions: [],
                 layoutIsExpanded: false,
@@ -95,10 +95,10 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             }
         );
         }
-    if (em_mask_volume !== 'undefined') {
+    if (em_mask_volume_url !== 'undefined') {
         viewerInstance.loadVolumeFromUrl(
             {
-                url: em_mask_volume,
+                url: em_mask_volume_url,
                 format:'dscif',
                 isBinary: true
             },
@@ -113,6 +113,40 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             {
                 isLazy: true,
                 entryId: 'mask'
+            }
+        );
+        }
+    if (map_xray_url !== 'undefined') {
+        viewerInstance.loadVolumeFromUrl(
+            {
+                url: map_xray_url,
+                format: 'dscif',
+                isBinary: true
+            },
+            [{
+                type: 'relative',
+                value: 1,
+                color: 0x3362B2,
+                alpha: 0.20,
+
+            },
+            {
+                type: 'relative',
+                value: 3,
+                color: 0xBB3333,
+                alpha: 0.20,
+                volumeIndex: 1
+            },
+            {
+                type: 'relative',
+                value: -3,
+                color: 0xBB3333,
+                alpha: 0.20,
+                volumeIndex: 1
+            }],
+            {
+                isLazy: true,
+                entryId: ['2FO-FC', 'FO-FC'],
             }
         );
         }
