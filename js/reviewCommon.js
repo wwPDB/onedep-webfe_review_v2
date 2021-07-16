@@ -146,7 +146,8 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             }],
             {
                 isLazy: false,
-                entryId: ['2FO-FC', 'FO-FC'],
+                entryId: 'xray'
+                // entryId: ['2FO-FC', 'FO-FC'],
             }
         );
         }
