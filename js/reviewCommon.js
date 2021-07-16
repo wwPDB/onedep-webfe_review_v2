@@ -130,20 +130,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 alpha: 0.20,
 
             },
-            {
-                type: 'relative',
-                value: 3,
-                color: 0xBB3333,
-                alpha: 0.20,
-                volumeIndex: 1
-            },
-            {
-                type: 'relative',
-                value: -3,
-                color: 0xBB3333,
-                alpha: 0.20,
-                volumeIndex: 1
-            }],
+            ],
             {
                 isLazy: false,
                 entryId: 'xray'
