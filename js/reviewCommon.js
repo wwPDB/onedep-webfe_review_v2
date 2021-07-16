@@ -145,7 +145,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 volumeIndex: 1
             }],
             {
-                isLazy: true,
+                isLazy: false,
                 entryId: ['2FO-FC', 'FO-FC'],
             }
         );
