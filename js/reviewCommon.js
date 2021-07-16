@@ -130,11 +130,23 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 alpha: 0.20,
 
             },
-            ],
             {
-                isLazy: false,
-                entryId: 'xray'
-                // entryId: ['2FO-FC', 'FO-FC'],
+                type: 'relative',
+                value: 3,
+                color: 0xBB3333,
+                alpha: 0.20,
+                volumeIndex: 1
+            },
+            {
+                type: 'relative',
+                value: -3,
+                color: 0xBB3333,
+                alpha: 0.20,
+                volumeIndex: 1
+            }],
+            {
+                isLazy: true,
+                entryId: ['2FO-FC', 'FO-FC'],
             }
         );
         }
