@@ -135,8 +135,8 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 isLazy: true,
                 entryId: 'map-half1'
             }
-        );
-        }
+            );
+            }
     if (map_xray_url !== 'undefined') {
         viewerInstance.loadVolumeFromUrl(
             {
