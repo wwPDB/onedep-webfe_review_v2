@@ -133,7 +133,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             ],
             {
                 isLazy: true,
-                entryId: 'Halfmap'
+                entryId: 'halfmap'
             }
             );
             }
@@ -154,7 +154,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             ],
             {
                 isLazy: true,
-                entryId: 'AdditionalVolume'
+                entryId: 'additionalvolume'
             }
             );
             }
