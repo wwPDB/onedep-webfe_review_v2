@@ -53,7 +53,7 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
-function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_url = 'undefined', em_mask_volume_url = 'undefined', em_half_volume_url = 'undefined', em_additional_volume_url = 'undefined' , map_xray_url = 'undefined'){
+function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_url = 'undefined', em_mask_volume_url = 'undefined', em_half_volume_1_url = 'undefined',em_half_volume_2_url = 'undefined', em_additional_volume_url = 'undefined' , map_xray_url = 'undefined'){
     var viewerInstance = new molstar.Viewer('myViewer', {
                 extensions: [],
                 layoutIsExpanded: false,
