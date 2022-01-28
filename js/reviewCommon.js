@@ -53,7 +53,7 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
-function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_url = 'undefined', em_mask_volume_url = 'undefined', em_half_volume_1_url = 'undefined',em_half_volume_2_url = 'undefined', em_additional_volume_url = 'undefined' , map_xray_url = 'undefined'){
+function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_1_url = 'undefined', em_mask_volume_1_url = 'undefined', em_half_volume_1_url = 'undefined',em_half_volume_2_url = 'undefined', em_additional_volume_1_url = 'undefined' , map_xray_url = 'undefined'){
     var viewerInstance = new molstar.Viewer('myViewer', {
                 extensions: [],
                 layoutIsExpanded: false,
@@ -76,7 +76,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
         primary_contour_level = 1
     }
 
-    if (em_volume_url !== 'undefined') {
+    if (em_volume_1_url !== 'undefined') {
         viewerInstance.loadVolumeFromUrl(
             {
                 url: em_volume_url,
@@ -98,7 +98,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
     if (em_mask_volume_1_url !== 'undefined') {
         viewerInstance.loadVolumeFromUrl(
             {
-                url: em_mask_volume_url,
+                url: em_mask_volume_1_url,
                 format:'dscif',
                 isBinary: true
             },
@@ -116,32 +116,10 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             }
             );
             }
-
-    if (em_mask_volume_2_url !== 'undefined') {
+    if (em_half_volume_1_url !== 'undefined') {
         viewerInstance.loadVolumeFromUrl(
             {
-                url: em_mask_volume_url,
-                format:'dscif',
-                isBinary: true
-            },
-            [
-                {
-                    type: 'absolute',
-                    value: primary_contour_level,
-                    color: 0xff0000,
-                    alpha: 0.20
-                }
-            ],
-            {
-                isLazy: true,
-                entryId: 'mask'
-            }
-            );
-            }
-    if (em_half_volume_url !== 'undefined') {
-        viewerInstance.loadVolumeFromUrl(
-            {
-                url: em_half_volume_url,
+                url: em_half_volume_1_url,
                 format:'dscif',
                 isBinary: true
             },
@@ -159,10 +137,31 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             }
             );
             }
-    if (em_additional_volume_url !== 'undefined') {
+    if (em_half_volume_2_url !== 'undefined') {
         viewerInstance.loadVolumeFromUrl(
             {
-                url: em_additional_volume_url,
+                url: em_half_volume_2_url,
+                format:'dscif',
+                isBinary: true
+            },
+            [
+                {
+                    type: 'absolute',
+                    value: primary_contour_level,
+                    color: 0x6EC96E,
+                    alpha: 0.20
+                }
+            ],
+            {
+                isLazy: true,
+                entryId: 'halfmap'
+            }
+            );
+            }
+    if (em_additional_volume_1_url !== 'undefined') {
+        viewerInstance.loadVolumeFromUrl(
+            {
+                url: em_additional_volume_1_url,
                 format:'dscif',
                 isBinary: true
             },
@@ -180,10 +179,10 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             }
             );
             }
-    if (map_xray_url !== 'undefined') {
+    if (map_xray_1_url !== 'undefined') {
         viewerInstance.loadVolumeFromUrl(
             {
-                url: map_xray_url,
+                url: map_xray_1_url,
                 format: 'dscif',
                 isBinary: true
             },
