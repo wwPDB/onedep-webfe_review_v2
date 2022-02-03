@@ -54,7 +54,7 @@ function logContext(message) {
 }
 
 function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_url = 'undefined', em_mask_volume_url = 'undefined', map_xray_url = 'undefined'){
-    var viewerInstance = new molstar.Viewer('myViewer', {
+    molstar.Viewer.create('myViewer', {
                 extensions: [],
                 layoutIsExpanded: false,
                 layoutShowControls: true,
@@ -66,92 +66,94 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 viewportShowExpand: false,
                 viewportShowSelectionMode: false,
                 viewportShowAnimation: false,
-                volumeStreamingDisabled: true
+               volumeStreamingDisabled: true
 
-            });
-    if (molecule_url !== 'undefined') {
-        viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
-    }
-    if (primary_contour_level === 'undefined' ) {
-        primary_contour_level = 1
-    }
-
-    if (em_volume_url !== 'undefined') {
-        viewerInstance.loadVolumeFromUrl(
-            {
-                url: em_volume_url,
-                format: 'dscif',
-                isBinary: true
-            },
-            [{
-                type: 'absolute',
-                value: primary_contour_level,
-                color: 0x0000ff,
-                alpha: 0.20
-            }],
-            {
-                isLazy: false,
-                entryId: 'primary'
-            }
-        );
-        }
-    if (em_mask_volume_url !== 'undefined') {
-        viewerInstance.loadVolumeFromUrl(
-            {
-                url: em_mask_volume_url,
-                format:'dscif',
-                isBinary: true
-            },
-            [
-                {
-                    type: 'absolute',
-                    value: primary_contour_level,
-                    color: 0xff0000,
-                    alpha: 0.20
-                }
-            ],
-            {
-                isLazy: true,
-                entryId: 'mask'
-            }
-        );
-        }
-    if (map_xray_url !== 'undefined') {
-        viewerInstance.loadVolumeFromUrl(
-            {
-                url: map_xray_url,
-                format: 'dscif',
-                isBinary: true
-            },
-            [{
-                type: 'relative',
-                value: 1,
-                color: 0x3362B2,
-                alpha: 0.20,
-
-            },
-            {
-                type: 'relative',
-                value: 3,
-                color: 0xBB3333,
-                alpha: 0.20,
-                volumeIndex: 1
-            },
-            {
-                type: 'relative',
-                value: -3,
-                color: 0xBB3333,
-                alpha: 0.20,
-                volumeIndex: 1
-            }],
-            {
-                isLazy: false,
-                entryId: ['2FO-FC', 'FO-FC'],
-            }
-        );
-        }
+    }).then(function(viewerInstance) {   // This could also be viewerInstance => {
+	if (molecule_url !== 'undefined') {
+	    viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
+	}
+	if (primary_contour_level === 'undefined' ) {
+	    primary_contour_level = 1
+	}
+	
+	if (em_volume_url !== 'undefined') {
+	    viewerInstance.loadVolumeFromUrl(
+		{
+		    url: em_volume_url,
+		    format: 'dscif',
+		    isBinary: true
+		},
+		[{
+		    type: 'absolute',
+		    value: primary_contour_level,
+		    color: 0x0000ff,
+		    alpha: 0.20
+		}],
+		{
+		    isLazy: false,
+		    entryId: 'primary'
+		}
+	    );
+	}
+	
+	if (em_mask_volume_url !== 'undefined') {
+	    viewerInstance.loadVolumeFromUrl(
+		{
+		    url: em_mask_volume_url,
+		    format:'dscif',
+		    isBinary: true
+		},
+		[
+		    {
+			type: 'absolute',
+			value: primary_contour_level,
+			color: 0xff0000,
+			alpha: 0.20
+		    }
+		],
+		{
+		    isLazy: true,
+		    entryId: 'mask'
+		}
+	    );
+	}
+	
+	if (map_xray_url !== 'undefined') {
+	    viewerInstance.loadVolumeFromUrl(
+		{
+		    url: map_xray_url,
+		    format: 'dscif',
+		    isBinary: true
+		},
+		[{
+		    type: 'relative',
+		    value: 1,
+		    color: 0x3362B2,
+		    alpha: 0.20,
+		    
+		},
+		 {
+		     type: 'relative',
+		     value: 3,
+		     color: 0xBB3333,
+		     alpha: 0.20,
+		     volumeIndex: 1
+		 },
+		 {
+		     type: 'relative',
+		     value: -3,
+		     color: 0xBB3333,
+		     alpha: 0.20,
+		     volumeIndex: 1
+		 }],
+		{
+		    isLazy: false,
+		    entryId: ['2FO-FC', 'FO-FC'],
+		}
+	    );
+	}
+    });
 }
-
 
 function uploadFile(serviceUrl, formElementId, progressElementId) {
     var bar = $('.bar');
