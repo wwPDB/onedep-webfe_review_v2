@@ -158,7 +158,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                     entryId: 'halfmap2'
                 }
             );
-        }*/
+        }
         if (em_additional_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
@@ -179,7 +179,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                     entryId: 'additionalvolume'
                 }
             );
-        }
+        }*/
         if (map_xray_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
