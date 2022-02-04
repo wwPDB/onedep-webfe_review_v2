@@ -76,7 +76,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             primary_contour_level = 1
         }
 
-/*        if (em_volume_1_url !== 'undefined') {
+        if (em_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
                     url: this.em_volume_1_url,
@@ -94,7 +94,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                     entryId: 'primary'
                 }
             );
-        }*/
+        }
         if (em_mask_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
