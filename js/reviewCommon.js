@@ -117,7 +117,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             );
         }
 
-        if (em_half_volume_1_url !== 'undefined') {
+        /*if (em_half_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
                     url: em_half_volume_1_url,
@@ -158,7 +158,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                     entryId: 'halfmap2'
                 }
             );
-        }
+        }*/
         if (em_additional_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
