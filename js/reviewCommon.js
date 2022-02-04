@@ -85,7 +85,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 },
                 [{
                     type: 'absolute',
-                    value: em_volume_1_url_contourLevel,
+                    value: primary_contour_level,
                     color: 0x0000ff,
                     alpha: 0.20
                 }],
@@ -105,7 +105,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: em_mask_volume_1_url_contourLevel,
+                        value: primary_contour_level,
                         color: 0xff0000,
                         alpha: 0.20
                     }
@@ -127,7 +127,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: em_half_volume_1_url_contourLevel,
+                        value: primary_contour_level,
                         color: 0x6EC96E,
                         alpha: 0.20
                     }
@@ -148,7 +148,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: em_half_volume_2_url_contourLevel,
+                        value: primary_contour_level,
                         color: 0x6EC96E,
                         alpha: 0.20
                     }
@@ -169,7 +169,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: em_additional_volume_1_url_contourLevel,
+                        value: primary_contour_level,
                         color: 0xff0000,
                         alpha: 0.20
                     }
