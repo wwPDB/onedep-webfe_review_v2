@@ -79,13 +79,13 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
         if (em_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: this.em_volume_1_url,
+                    url: em_volume_1_url,
                     format: 'dscif',
                     isBinary: true
                 },
                 [{
                     type: 'absolute',
-                    value: this.primary_contour_level,
+                    value: em_volume_1_url_contourLevel,
                     color: 0x0000ff,
                     alpha: 0.20
                 }],
@@ -105,7 +105,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: primary_contour_level,
+                        value: em_mask_volume_1_url_contourLevel,
                         color: 0xff0000,
                         alpha: 0.20
                     }
@@ -127,7 +127,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: primary_contour_level,
+                        value: em_half_volume_1_url_contourLevel,
                         color: 0x6EC96E,
                         alpha: 0.20
                     }
@@ -148,7 +148,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: primary_contour_level,
+                        value: em_half_volume_2_url_contourLevel,
                         color: 0x6EC96E,
                         alpha: 0.20
                     }
@@ -169,7 +169,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: primary_contour_level,
+                        value: em_additional_volume_1_url_contourLevel,
                         color: 0xff0000,
                         alpha: 0.20
                     }
@@ -180,7 +180,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 }
             );
         }
-        if (map_xray_1_url !== 'undefined' || 'None') {
+        /*if (map_xray_1_url !== 'undefined' || 'None') {
             viewerInstance.loadVolumeFromUrl(
                 {
                     url: map_xray_1_url,
@@ -213,7 +213,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                     entryId: ['2FO-FC', 'FO-FC'],
                 }
             );
-        }
+        }*/
     });
 }
 
