@@ -180,7 +180,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 }
             );
         }
-        if (map_xray_1_url !== 'undefined') {
+        if (map_xray_1_url !== 'undefined' || 'None') {
             viewerInstance.loadVolumeFromUrl(
                 {
                     url: map_xray_1_url,
