@@ -116,6 +116,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 }
             );
         }
+        /*
         if (this.em_half_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
@@ -212,7 +213,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                     entryId: ['2FO-FC', 'FO-FC'],
                 }
             );
-        }
+        }*/
     });
 }
 
