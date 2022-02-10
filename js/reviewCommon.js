@@ -183,7 +183,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
         if (map_xray_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: map_xray_1_url,
+                    url: map_xray_url,
                     format: 'dscif',
                     isBinary: true
                 },
