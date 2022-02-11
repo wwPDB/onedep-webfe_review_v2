@@ -92,6 +92,7 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
                 }
             );
         }
+        /*
         if (em_mask_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
@@ -210,7 +211,7 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
                     entryId: ['2FO-FC', 'FO-FC'],
                 }
             );
-        }
+        }*/
     });
 }
 
