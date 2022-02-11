@@ -69,9 +69,9 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
         volumeStreamingDisabled: true
 
     }).then(function (viewerInstance) {   // This could also be viewerInstance => {
-        if (molecule_url !== 'undefined') {
+        /*if (molecule_url !== 'undefined') {
             viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
-        }
+        }*/
 
         if (em_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
