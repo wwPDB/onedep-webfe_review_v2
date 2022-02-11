@@ -53,7 +53,7 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
-function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1, em_volume_1_url = 'undefined', em_mask_volume_1_url = 'undefined', em_half_volume_1_url = 'undefined',em_half_volume_2_url = 'undefined', em_additional_volume_1_url = 'undefined' , map_xray_1_url = 'undefined') {
+function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel = 1, em_mask_volume_1_contourLevel = 1, em_half_volume_1_contourLevel = 1, em_half_volume_2_contourLevel = 1, em_additional_volume_1_contourLevel = 1,  em_volume_1_url = 'undefined', em_mask_volume_1_url = 'undefined', em_half_volume_1_url = 'undefined',em_half_volume_2_url = 'undefined', em_additional_volume_1_url = 'undefined' , map_xray_1_url = 'undefined') {
     molstar.Viewer.create('myViewer', {
         extensions: [],
         layoutIsExpanded: false,
@@ -72,9 +72,6 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
         if (molecule_url !== 'undefined') {
             viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
         }
-        if (primary_contour_level === 'undefined') {
-            primary_contour_level = 1
-        }
 
         if (em_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
@@ -85,7 +82,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 },
                 [{
                     type: 'absolute',
-                    value: primary_contour_level,
+                    value: em_volume_1_contourLevel,
                     color: 0x0000ff,
                     alpha: 0.20
                 }],
@@ -105,7 +102,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: primary_contour_level,
+                        value: em_mask_volume_1_contourLevel,
                         color: 0xff0000,
                         alpha: 0.20
                     }
@@ -127,7 +124,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: primary_contour_level,
+                        value: em_half_volume_1_contourLevel,
                         color: 0x6EC96E,
                         alpha: 0.20
                     }
@@ -148,7 +145,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: primary_contour_level,
+                        value: em_half_volume_2_contourLevel,
                         color: 0x6EC96E,
                         alpha: 0.20
                     }
@@ -169,7 +166,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 [
                     {
                         type: 'absolute',
-                        value: primary_contour_level,
+                        value: em_additional_volume_1_contourLevel,
                         color: 0xff0000,
                         alpha: 0.20
                     }
@@ -180,7 +177,6 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                 }
             );
         }
-        /*
         if (map_xray_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
@@ -214,7 +210,7 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
                     entryId: ['2FO-FC', 'FO-FC'],
                 }
             );
-        }*/
+        }
     });
 }
 
