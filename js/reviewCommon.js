@@ -72,7 +72,9 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
         /*if (molecule_url !== 'undefined') {
             viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
         }*/
-
+        if (primary_contour_level === 'undefined' ) {
+	    primary_contour_level = 1
+	    }
         if (em_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
