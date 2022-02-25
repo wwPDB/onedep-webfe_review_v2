@@ -60,10 +60,10 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
         extensions: [],
         layoutIsExpanded: false,
         layoutShowControls: true,
-        layoutShowRemoteState: false,
+        layoutShowRemoteState: true,
         layoutShowSequence: true,
         layoutShowLog: true,
-        layoutShowLeftPanel: false,
+        layoutShowLeftPanel: true,
 
         viewportShowExpand: false,
         viewportShowSelectionMode: false,
