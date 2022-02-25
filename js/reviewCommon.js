@@ -58,17 +58,17 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
                           em_half_volume_2_url = 'undefined', em_additional_volume_1_url = 'undefined' , map_xray_1_url = 'undefined') {
     molstar.Viewer.create('myViewer', {
         extensions: [],
-        layoutIsExpanded: false,
+        layoutIsExpanded: true,
         layoutShowControls: true,
         layoutShowRemoteState: false,
         layoutShowSequence: true,
-        layoutShowLog: false,
+        layoutShowLog: true,
         layoutShowLeftPanel: false,
 
         viewportShowExpand: false,
         viewportShowSelectionMode: false,
         viewportShowAnimation: false,
-        volumeStreamingDisabled: true
+        volumeStreamingDisabled: false
 
     }).then(function (viewerInstance) {   // This could also be viewerInstance => {
         if (this.molecule_url !== 'undefined') {
