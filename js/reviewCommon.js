@@ -53,9 +53,9 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
-function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel = 1, em_mask_volume_1_contourLevel = 1, em_half_volume_1_contourLevel = 1, em_half_volume_2_contourLevel = 1,
+function display_mol_star({molecule_url = 'undefined', em_volume_1_contourLevel = 1, em_mask_volume_1_contourLevel = 1, em_half_volume_1_contourLevel = 1, em_half_volume_2_contourLevel = 1,
                           em_additional_volume_1_contourLevel = 1,  em_volume_1_url = 'undefined', em_mask_volume_1_url = 'undefined', em_half_volume_1_url = 'undefined',
-                          em_half_volume_2_url = 'undefined', em_additional_volume_1_url = 'undefined' , map_xray_1_url = 'undefined') {
+                          em_half_volume_2_url = 'undefined', em_additional_volume_1_url = 'undefined', map_xray_1_url = 'undefined'}={}) {
     molstar.Viewer.create('myViewer', {
         extensions: [],
         layoutIsExpanded: false,
