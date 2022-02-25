@@ -71,22 +71,22 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
         volumeStreamingDisabled: true
 
     }).then(function (viewerInstance) {   // This could also be viewerInstance => {
-        if (molecule_url !== 'undefined') {
+        if (this.molecule_url !== 'undefined') {
             viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
         }
-        if (em_volume_1_contourLevel === 'undefined') {
+        if (this.em_volume_1_contourLevel === 'undefined') {
             em_volume_1_contourLevel = 1
         }
-        if (em_volume_1_url !== 'undefined') {
+        if (this.em_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: em_volume_1_url,
+                    url: this.em_volume_1_url,
                     format: 'dscif',
                     isBinary: true
                 },
                 [{
                     type: 'absolute',
-                    value: em_volume_1_contourLevel,
+                    value: this.em_volume_1_contourLevel,
                     color: 0x0000ff,
                     alpha: 0.20
                 }],
@@ -96,17 +96,17 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
                 }
             );
         }
-        if (em_mask_volume_1_url !== 'undefined') {
+        if (this.em_mask_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: em_mask_volume_1_url,
+                    url: this.em_mask_volume_1_url,
                     format: 'dscif',
                     isBinary: true
                 },
                 [
                     {
                         type: 'absolute',
-                        value: em_mask_volume_1_contourLevel,
+                        value: this.em_mask_volume_1_contourLevel,
                         color: 0xff0000,
                         alpha: 0.20
                     }
@@ -118,17 +118,17 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
             );
         }
 
-        if (em_half_volume_1_url !== 'undefined') {
+        if (this.em_half_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: em_half_volume_1_url,
+                    url: this.em_half_volume_1_url,
                     format: 'dscif',
                     isBinary: true
                 },
                 [
                     {
                         type: 'absolute',
-                        value: em_half_volume_1_contourLevel,
+                        value: this.em_half_volume_1_contourLevel,
                         color: 0x6EC96E,
                         alpha: 0.20
                     }
@@ -139,17 +139,17 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
                 }
             );
         }
-        if (em_half_volume_2_url !== 'undefined') {
+        if (this.em_half_volume_2_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: em_half_volume_2_url,
+                    url: this.em_half_volume_2_url,
                     format: 'dscif',
                     isBinary: true
                 },
                 [
                     {
                         type: 'absolute',
-                        value: em_half_volume_2_contourLevel,
+                        value: this.em_half_volume_2_contourLevel,
                         color: 0x6EC96E,
                         alpha: 0.20
                     }
@@ -160,17 +160,17 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
                 }
             );
         }
-        if (em_additional_volume_1_url !== 'undefined') {
+        if (this.em_additional_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: em_additional_volume_1_url,
+                    url: this.em_additional_volume_1_url,
                     format: 'dscif',
                     isBinary: true
                 },
                 [
                     {
                         type: 'absolute',
-                        value: em_additional_volume_1_contourLevel,
+                        value: this.em_additional_volume_1_contourLevel,
                         color: 0xff0000,
                         alpha: 0.20
                     }
@@ -181,10 +181,10 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
                 }
             );
         }
-        if (map_xray_1_url !== 'undefined') {
+        if (this.map_xray_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: map_xray_1_url,
+                    url: this.map_xray_1_url,
                     format: 'dscif',
                     isBinary: true
                 },
