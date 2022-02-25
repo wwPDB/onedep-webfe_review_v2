@@ -60,10 +60,10 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
         extensions: [],
         layoutIsExpanded: false,
         layoutShowControls: true,
-        layoutShowRemoteState: true,
+        layoutShowRemoteState: false,
         layoutShowSequence: true,
         layoutShowLog: true,
-        layoutShowLeftPanel: true,
+        layoutShowLeftPanel: false,
 
         viewportShowExpand: false,
         viewportShowSelectionMode: false,
@@ -77,6 +77,7 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
         if (em_volume_1_contourLevel === 'undefined') {
             em_volume_1_contourLevel = 1
         }
+        /*
         if (em_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
@@ -95,7 +96,7 @@ function display_mol_star(molecule_url = 'undefined', em_volume_1_contourLevel =
                     entryId: 'primary'
                 }
             );
-        }
+        }*/
         if (em_mask_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
