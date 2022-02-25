@@ -215,7 +215,6 @@ function display_mol_star(molecule_url = 'undefined', primary_contour_level = 1,
             );
         }*/
     });
-}
 
 function uploadFile(serviceUrl, formElementId, progressElementId) {
     var bar = $('.bar');
