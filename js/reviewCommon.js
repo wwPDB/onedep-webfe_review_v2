@@ -53,6 +53,86 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
+function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefined', mapList}={}) {
+
+    molstar.Viewer.create('myViewer', {
+        extensions: [],
+        layoutIsExpanded: false,
+        layoutShowControls: true,
+        layoutShowRemoteState: false,
+        layoutShowSequence: true,
+        layoutShowLog: true,
+        layoutShowLeftPanel: false,
+
+        viewportShowExpand: false,
+        viewportShowSelectionMode: false,
+        viewportShowAnimation: false,
+        volumeStreamingDisabled: false
+
+    }).then(function (viewerInstance) {   // This could also be viewerInstance => {
+        if (molecule_url !== 'undefined') {
+            viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
+        }
+        if (map_xray_1_url !== 'undefined') {
+            viewerInstance.loadVolumeFromUrl(
+                {
+                    url: map_xray_1_url,
+                    format: 'dscif',
+                    isBinary: true
+                },
+                [{
+                    type: 'relative',
+                    value: 1,
+                    color: 0x3362B2,
+                    alpha: 0.20,
+
+                },
+                    {
+                        type: 'relative',
+                        value: 3,
+                        color: 0xBB3333,
+                        alpha: 0.20,
+                        volumeIndex: 1
+                    },
+                    {
+                        type: 'relative',
+                        value: -3,
+                        color: 0xBB3333,
+                        alpha: 0.20,
+                        volumeIndex: 1
+                    }],
+                {
+                    isLazy: false,
+                    entryId: ['2FO-FC', 'FO-FC'],
+                }
+            );
+        }
+
+        for (i = 0; i < mapList.length; i++) {
+            console.log(mapList[i])
+            viewerInstance.loadVolumeFromUrl(
+                {
+                    url: mapList[i]["url_name"],
+                    format: 'dscif',
+                    isBinary: true
+                },
+                [{
+                    type: 'absolute',
+                    value: mapList[i]["contourLevel"],
+                    color: 0x0000ff,
+                    alpha: 0.20
+                }],
+                {
+                    isLazy: false,
+                    entryId: mapList[i]["displayName"]
+                }
+            );
+        }
+    })
+}
+
+
+/*
 function display_mol_star({molecule_url = 'undefined', em_volume_1_contourLevel = 1, em_mask_volume_1_contourLevel = 1, em_half_volume_1_contourLevel = 1, em_half_volume_2_contourLevel = 1,
                           em_additional_volume_1_contourLevel = 1,  em_volume_1_url = 'undefined', em_mask_volume_1_url = 'undefined', em_half_volume_1_url = 'undefined',
                           em_half_volume_2_url = 'undefined', em_additional_volume_1_url = 'undefined', map_xray_1_url = 'undefined'}={}) {
@@ -77,7 +157,6 @@ function display_mol_star({molecule_url = 'undefined', em_volume_1_contourLevel 
         if (em_volume_1_contourLevel === 'undefined') {
             em_volume_1_contourLevel = 1
         }
-        /*
         if (em_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
@@ -96,7 +175,7 @@ function display_mol_star({molecule_url = 'undefined', em_volume_1_contourLevel 
                     entryId: 'primary'
                 }
             );
-        }*/
+        }
         if (em_mask_volume_1_url !== 'undefined') {
             viewerInstance.loadVolumeFromUrl(
                 {
@@ -216,9 +295,9 @@ function display_mol_star({molecule_url = 'undefined', em_volume_1_contourLevel 
                     entryId: ['2FO-FC', 'FO-FC'],
                 }
             );
-        }*/
+        }
     });
-}
+}*/
 function uploadFile(serviceUrl, formElementId, progressElementId) {
     var bar = $('.bar');
     var percent = $('.percent');
