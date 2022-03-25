@@ -109,7 +109,6 @@ function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefin
         }
 
         for (i = 0; i < mapsList.length; i++) {
-            console.log(mapsList[i])
             viewerInstance.loadVolumeFromUrl(
                 {
                     url: mapsList[i]["url_name"],
@@ -120,7 +119,7 @@ function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefin
                     type: 'absolute',
                     value: mapsList[i]["contourLevel"],
                     color: mapsList[i]["mapColour"],
-                    alpha: 0.20
+                    alpha: 0.35
                 }],
                 {
                     isLazy: false,
