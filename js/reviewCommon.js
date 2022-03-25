@@ -53,7 +53,7 @@ function logContext(message) {
   log("%log: " + message + " ( session id " + sessionId + ")");
 }
 
-function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefined', mapList}={}) {
+function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefined', mapsList = []}={}) {
 
     molstar.Viewer.create('myViewer', {
         extensions: [],
@@ -108,23 +108,23 @@ function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefin
             );
         }
 
-        for (i = 0; i < mapList.length; i++) {
-            console.log(mapList[i])
+        for (i = 0; i < mapsList.length; i++) {
+            console.log(mapsList[i])
             viewerInstance.loadVolumeFromUrl(
                 {
-                    url: mapList[i]["url_name"],
+                    url: mapsList[i]["url_name"],
                     format: 'dscif',
                     isBinary: true
                 },
                 [{
                     type: 'absolute',
-                    value: mapList[i]["contourLevel"],
+                    value: mapsList[i]["contourLevel"],
                     color: 0x0000ff,
                     alpha: 0.20
                 }],
                 {
                     isLazy: false,
-                    entryId: mapList[i]["displayName"]
+                    entryId: mapsList[i]["displayName"]
                 }
             );
         }
