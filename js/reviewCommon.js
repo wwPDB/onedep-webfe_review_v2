@@ -119,7 +119,7 @@ function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefin
                 [{
                     type: 'absolute',
                     value: mapsList[i]["contourLevel"],
-                    color: 0x0000ff,
+                    color: mapsList[i]["mapColour"],
                     alpha: 0.20
                 }],
                 {
