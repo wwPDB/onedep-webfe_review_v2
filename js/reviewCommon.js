@@ -446,27 +446,27 @@ function setupSideBar() {
     });
 	
     $window.on('load', function() {
-	$body.scrollspy('refresh')
+	$body.scrollspy('refresh');
     });
     
     $('.bs-docs-container [href=#]').click(function(e) {
-	e.preventDefault()
+	e.preventDefault();
     });
     
     // back to top
     setTimeout(function() {
-	var $sideBar = $('.bs-sidebar')
+	var $sideBar = $('.bs-sidebar');
 	
 	$sideBar.affix({
             offset: {
 		top: function() {
-                    var offsetTop = $sideBar.offset().top
-                    var sideBarMargin = parseInt($sideBar.children(0).css('margin-top'), 10)
-                    var navOuterHeight = $('.bs-docs-nav').height()
-                    return (this.top = offsetTop - navOuterHeight - sideBarMargin)
+                    var offsetTop = $sideBar.offset().top;
+                    var sideBarMargin = parseInt($sideBar.children(0).css('margin-top'), 10);
+                    var navOuterHeight = $('.bs-docs-nav').height();
+                    return (this.top = offsetTop - navOuterHeight - sideBarMargin);
 		},
 		bottom: function() {
-                    return (this.bottom = $('.bs-footer').outerHeight(true))
+                    return (this.bottom = $('.bs-footer').outerHeight(true));
 		}
             }
 	})
@@ -605,6 +605,7 @@ $(document).ready(function () {
 		         if (("entryid" in jsonObj)  && (jsonObj.entryid != null) && (jsonObj.entryid.length > 0)) {
 			         $("title").html("Rev: "+ jsonObj.entryid);
 			         $("#subheader").html(jsonObj.entryid);			
+				 if ($('#operation2').val() == "update") $('#review-idcode-1').val(jsonObj.entryid);
 			         entryId=jsonObj.entryid;
 			         getEntryInfo();
 		         }
@@ -632,7 +633,7 @@ $(document).ready(function () {
     }    
 
     //   <!-- make the nav item for the current page active -->
-   $('.nav a[href="' + pagePath + '"]').parent().addClass('active');
+    $('.nav a[href="' + pagePath + '"]').parent().addClass('active');
     handleCLoseWindow();    
 }); // end-ready
 
