@@ -33,6 +33,7 @@ var reviewFileOpsUrl       = '/service/review_v2/inline_fileops';
 
 var newSessionServiceUrl     = '/service/review_v2/newsession';
 var getSessionInfoServiceUrl = '/service/review_v2/getsessioninfo';
+var molstarViewer            = undefined;
 
 /*window.log = function(){
   log.history = log.history || [];   // store logs to an array for reference
@@ -70,6 +71,8 @@ function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefin
         volumeStreamingDisabled: true
 
     }).then(function (viewerInstance) {   // This could also be viewerInstance => {
+        molstarViewer = viewerInstance;
+
         if (molecule_url !== 'undefined') {
             viewerInstance.loadAllModelsOrAssemblyFromUrl(molecule_url, 'mmcif', false, {representationParams: {theme: {globalName: 'operator-name'}}});
         }
@@ -129,7 +132,22 @@ function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefin
         }
     })
 }
+function inspect(structConnId) {
+    if (molstarViewer?.plugin) {
+        molstar.PluginExtensions.wwPDBStructConn.inspectStructConn(molstarViewer.plugin, entryId, structConnId).then(nSelectedAtoms => {
+            if (nSelectedAtoms < 2) {
+                alert('Some of the interacting atoms were not found \n(Link is likely not present in the viewed assembly, try again with model view)')
+            } else {
 
+            }
+        });
+    }
+}
+function clearInspections() {
+    if (molstarViewer?.plugin) {
+        molstar.PluginExtensions.wwPDBStructConn.clearStructConnInspections(molstarViewer.plugin, entryId);
+    }
+}
 function uploadFile(serviceUrl, formElementId, progressElementId) {
     var bar = $('.bar');
     var percent = $('.percent');
