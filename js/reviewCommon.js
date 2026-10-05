@@ -66,7 +66,7 @@ function display_mol_star({molecule_url = 'undefined', map_xray_1_url = 'undefin
         layoutShowLeftPanel: false,
 
         viewportShowExpand: false,
-        viewportShowSelectionMode: false,
+        viewportShowSelectionMode: true,
         viewportShowAnimation: false,
         volumeStreamingDisabled: true
 
